@@ -2112,7 +2112,7 @@ ol_attach_fail:
  *
  * Return: 0 - success 1 - failure
  */
-A_STATUS ol_txrx_pdev_attach_target(ol_txrx_pdev_handle pdev)
+int ol_txrx_pdev_attach_target(ol_txrx_pdev_handle pdev)
 {
 	return htt_attach_target(pdev->htt_pdev) == QDF_STATUS_SUCCESS ? 0:1;
 }
@@ -4371,7 +4371,7 @@ struct ol_txrx_stats_req_internal
 	return req;
 }
 
-A_STATUS
+int
 ol_txrx_fw_stats_get(ol_txrx_vdev_handle vdev, struct ol_txrx_stats_req *req,
 			bool per_vdev, bool response_expected)
 {

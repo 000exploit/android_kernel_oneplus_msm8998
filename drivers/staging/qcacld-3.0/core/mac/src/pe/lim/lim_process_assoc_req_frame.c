@@ -140,8 +140,7 @@ static bool lim_check_sta_in_pe_entries(tpAniSirGlobal mac_ctx, tpSirMacMgmtHdr 
 	bool dup_entry = false;
 
 	for (i = 0; i < mac_ctx->lim.maxBssId; i++) {
-		if ((&mac_ctx->lim.gpSession[i] != NULL) &&
-		    (mac_ctx->lim.gpSession[i].valid) &&
+		if ((mac_ctx->lim.gpSession[i].valid) &&
 		    (mac_ctx->lim.gpSession[i].pePersona == QDF_SAP_MODE)) {
 			session = &mac_ctx->lim.gpSession[i];
 			sta_ds = dph_lookup_hash_entry(mac_ctx, hdr->sa,

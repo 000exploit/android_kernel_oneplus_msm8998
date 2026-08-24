@@ -193,7 +193,8 @@ static inline void cds_host_diag_log_work(qdf_wake_lock_t *lock, uint32_t msec,
 	}
 }
 #else
-#define cds_host_diag_log_work(lock, msec, reason) (0)
+#define cds_host_diag_log_work(lock, msec, reason) \
+	do { (void)(lock); (void)(msec); (void)(reason); } while (0)
 #endif
 
 /**
